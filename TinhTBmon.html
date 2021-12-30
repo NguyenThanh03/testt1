@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nhập điểm 3 môn toán lý hóa</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<h3>Toán :</h3>
+<input type="number" ng-model="toan" id="toan">
+<h3>Lý   :</h3>
+<input type="number" ng-model="ly" id="ly">
+<h3>Hoá  :</h3>
+<input type="number" ng-model="hoa" id="hoa">
+<br>
+<input type="button" value="Tính" ng-click="Calc()">
+<br>
+<h3>Tong mon: {{tong}}</h3>
+<h3>Diem TB: {{tb}}</h3>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.toan = 0;
+        $scope.ly = 0;
+        $scope.hoa = 0;
+        $scope.tong = 0;
+        $scope.tb = 0;
+        $scope.Calc = function (){
+            $scope.tong = $scope.toan + $scope.ly + $scope.hoa;
+            $scope.tb = $scope.tong/3;
+        }
+    });
+</script>
+</body>
+</html>
